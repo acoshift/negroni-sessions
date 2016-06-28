@@ -1,9 +1,9 @@
 package redisstore
 
 import (
+	nSessions "github.com/acoshift/negroni-sessions"
 	"github.com/boj/redistore"
 	"github.com/garyburd/redigo/redis"
-	nSessions "github.com/goincremental/negroni-sessions"
 	gSessions "github.com/gorilla/sessions"
 )
 

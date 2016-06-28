@@ -1,4 +1,5 @@
-# negroni-sessions [![GoDoc](https://godoc.org/github.com/GoIncremental/negroni-sessions?status.svg)](http://godoc.org/github.com/GoIncremental/negroni-sessions) [![wercker status](https://app.wercker.com/status/988ab53fd546cb198ee5c4c530e0126b/s "wercker status")](https://app.wercker.com/project/bykey/988ab53fd546cb198ee5c4c530e0126b)
+> Fork from goincremental/negroni-sessions
+
 Negroni middleware/handler for easy session management.
 
 ## Usage
@@ -7,16 +8,16 @@ Negroni middleware/handler for easy session management.
 package main
 
 import (
-  "github.com/codegangsta/negroni"
-  "github.com/goincremental/negroni-sessions"
-  "github.com/goincremental/negroni-sessions/cookiestore"
+  "github.com/urfave/negroni"
+  "github.com/acoshift/negroni-sessions"
+  "github.com/acoshift/negroni-sessions/cookiestore"
   "net/http"
 )
 
 func main() {
   n := negroni.Classic()
 
-  store := cookiestore.New([]byte("secret123"))  
+  store := cookiestore.New([]byte("secret123"))
   n.Use(sessions.Sessions("my_session", store))
 
   mux := http.NewServeMux()
