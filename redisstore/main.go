@@ -2,6 +2,7 @@ package redisstore
 
 import (
 	"github.com/boj/redistore"
+	"github.com/garyburd/redigo/redis"
 	nSessions "github.com/goincremental/negroni-sessions"
 	gSessions "github.com/gorilla/sessions"
 )
@@ -9,6 +10,24 @@ import (
 //New returns a new Redis store
 func New(size int, network, address, password string, keyPairs ...[]byte) (nSessions.Store, error) {
 	store, err := redistore.NewRediStore(size, network, address, password, keyPairs...)
+	if err != nil {
+		return nil, err
+	}
+	return &rediStore{store}, nil
+}
+
+// NewWithDB returns a new Redis store
+func NewWithDB(size int, network, address, password, DB string, keyPairs ...[]byte) (nSessions.Store, error) {
+	store, err := redistore.NewRediStoreWithDB(size, network, address, password, DB, keyPairs...)
+	if err != nil {
+		return nil, err
+	}
+	return &rediStore{store}, nil
+}
+
+// NewWithPool returns a new Redis store
+func NewWithPool(pool *redis.Pool, keyPairs ...[]byte) (nSessions.Store, error) {
+	store, err := redistore.NewRediStoreWithPool(pool, keyPairs...)
 	if err != nil {
 		return nil, err
 	}
