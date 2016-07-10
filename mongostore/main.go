@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"time"
 
-	nSessions "github.com/goincremental/negroni-sessions"
+	nSessions "github.com/acoshift/negroni-sessions"
 	"github.com/gorilla/securecookie"
 	gSessions "github.com/gorilla/sessions"
 	"gopkg.in/mgo.v2"

@@ -7,8 +7,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/goincremental/negroni-sessions"
-	"github.com/goincremental/negroni-sessions/cookiestore"
+	"github.com/acoshift/negroni-sessions"
+	"github.com/acoshift/negroni-sessions/cookiestore"
 	"github.com/urfave/negroni"
 )
 

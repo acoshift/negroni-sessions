@@ -1,8 +1,8 @@
 package dynamostore
 
 import (
+	nSessions "github.com/acoshift/negroni-sessions"
 	dynstore "github.com/denizeren/dynamostore"
-	nSessions "github.com/goincremental/negroni-sessions"
 	gSessions "github.com/gorilla/sessions"
 )
 

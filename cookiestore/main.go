@@ -1,7 +1,7 @@
 package cookiestore
 
 import (
-	nSessions "github.com/goincremental/negroni-sessions"
+	nSessions "github.com/acoshift/negroni-sessions"
 	gSessions "github.com/gorilla/sessions"
 )
 
