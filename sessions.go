@@ -88,7 +88,7 @@ func Sessions(name string, store Store) negroni.HandlerFunc {
 	return func(res http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 		// Map to the Session interface
 		s := &session{name, r, store, nil, false}
-		r = r.WithContext(context.WithValue(r.Context(), sessionKey, s))
+		nr := r.WithContext(context.WithValue(r.Context(), sessionKey, s))
 		// context.Set(r, sessionKey, s)
 		// Use before hook to save out the session
 		rw := res.(negroni.ResponseWriter)
@@ -102,7 +102,7 @@ func Sessions(name string, store Store) negroni.HandlerFunc {
 		// gorilla context and we don't want memory leaks
 		// defer context.Clear(r)
 
-		next(rw, r)
+		next(rw, nr)
 	}
 }
 
